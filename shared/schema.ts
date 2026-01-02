@@ -6,14 +6,14 @@ export const products = pgTable("products", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   description: text("description").notNull(),
-  price: numeric("price").notNull(),
-  originalPrice: numeric("original_price"), // For offers
+  price: numeric("price").notNull(), // Using numeric for currency
+  originalPrice: numeric("original_price"), 
   brand: text("brand").notNull(),
-  category: text("category").notNull(), // e.g., "Phone Case", "Screen Protector"
-  modelCompatibility: text("model_compatibility").array(), // e.g., ["iPhone 15", "Samsung S24"]
+  category: text("category").notNull(), 
+  modelCompatibility: text("model_compatibility").array(), 
   material: text("material"),
-  colors: jsonb("colors").$type<string[]>(), // Available colors
-  images: jsonb("images").$type<string[]>().notNull(), // URLs
+  colors: jsonb("colors").$type<string[]>(), 
+  images: jsonb("images").$type<string[]>().notNull(), 
   isFeatured: boolean("is_featured").default(false),
   isTrending: boolean("is_trending").default(false),
   stock: serial("stock"),
