@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
+import { SEO } from "@/components/SEO";
 
 export default function About() {
   return (
-    <div className="pt-24 min-h-screen bg-white pb-20">
+    <>
+      <SEO 
+        title="About Us - SB Vision | Your Trusted Phone Store in Kathmandu, Nepal"
+        description="Learn about SB Vision - Suraj Electronics Nepal. Located in Khahare Khola, Kathmandu. We offer genuine phones and premium accessories with expert service and competitive prices."
+        keywords="about SB Vision, Suraj Electronics Nepal history, phone store Kathmandu about, mobile accessories store Nepal, trusted phone dealer Kathmandu"
+      />
+      <div className="pt-24 min-h-screen bg-white pb-20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -11,7 +18,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-5xl font-bold mb-6"
           >
-            The Future of <span className="text-sky-500">Protection</span>
+            Your Trusted <span className="text-sky-500">Phone Store</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -19,7 +26,7 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="text-xl text-slate-500 leading-relaxed"
           >
-            SB Vision was born from a simple idea: phone accessories shouldn't just protect, they should inspire.
+            Suraj Electronics Nepal - Your one-stop destination for latest smartphones and premium phone accessories in Kathmandu.
           </motion.p>
         </div>
 
@@ -38,13 +45,16 @@ export default function About() {
             <h2 className="font-display text-3xl font-bold mb-6">Our Story</h2>
             <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
               <p>
-                Founded in 2024, we noticed a gap in the market. Phone cases were either protective but bulky, or slim but fragile. We set out to change that.
+                Located in the heart of Kathmandu, Suraj Electronics Nepal has been serving customers with the latest smartphones and premium phone accessories for years.
               </p>
               <p>
-                Our engineering team spent months researching advanced materials used in aerospace industries to create our signature Impact-X™ polymer.
+                We understand that your phone is more than just a device - it's your connection to the world. That's why we offer only genuine products from trusted brands, ensuring quality and reliability.
               </p>
               <p>
-                Today, SB Vision represents the intersection of futuristic design and military-grade protection. We are for the visionaries, the creators, and those who demand the best.
+                From the newest flagship phones to essential accessories like cases, screen protectors, chargers, and cables - we have everything you need to keep your device protected and fully functional.
+              </p>
+              <p>
+                Our commitment is to provide excellent customer service, competitive prices, and genuine products with proper warranty support.
               </p>
             </div>
           </div>
@@ -52,12 +62,12 @@ export default function About() {
 
         {/* Values */}
         <div className="bg-slate-50 rounded-3xl p-12 md:p-20 text-center">
-          <h2 className="font-display text-3xl font-bold mb-12">Our Core Values</h2>
+          <h2 className="font-display text-3xl font-bold mb-12">Why Choose Us</h2>
           <div className="grid md:grid-cols-3 gap-12">
             {[
-              { title: "Innovation First", desc: "We never settle for 'good enough'. We push boundaries." },
-              { title: "Sustainable Future", desc: "100% recycled materials in our packaging." },
-              { title: "Customer Obsession", desc: "Your device's safety is our #1 priority." },
+              { title: "Genuine Products", desc: "100% authentic phones and accessories from authorized dealers." },
+              { title: "Best Prices", desc: "Competitive pricing with regular offers and discounts." },
+              { title: "Expert Support", desc: "Professional advice and after-sales service you can trust." },
             ].map((v, i) => (
               <div key={i}>
                 <h3 className="font-bold text-xl mb-4 text-slate-900">{v.title}</h3>
@@ -68,5 +78,6 @@ export default function About() {
         </div>
       </div>
     </div>
+    </>
   );
 }

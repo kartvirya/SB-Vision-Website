@@ -3,8 +3,9 @@ import { useSendMessage } from "@/hooks/use-messages";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
+import { SEO } from "@/components/SEO";
 
 export default function Contact() {
   const sendMessage = useSendMessage();
@@ -17,12 +18,18 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50 pb-20">
+    <>
+      <SEO 
+        title="Contact Us - SB Vision | Phone Store in Khahare Khola, Kathmandu"
+        description="Visit SB Vision at Khahare Khola, Kathmandu 44600. Call us at 9841759119 or 01-4535346. Your trusted phone and accessories store in Nepal. Find us on Facebook and Instagram."
+        keywords="phone store Kathmandu contact, Suraj Electronics Nepal address, phone shop Khahare Khola, mobile store Kathmandu phone number, SB Vision contact"
+      />
+      <div className="pt-24 min-h-screen bg-slate-50 pb-20">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h1 className="font-display text-4xl font-bold mb-4">Get in Touch</h1>
           <p className="text-slate-500 text-lg">
-            Have questions about our products? We're here to help you find the perfect match for your device.
+            Have questions about phones or accessories? Visit our store or contact us - we're here to help you find the perfect device and accessories.
           </p>
         </div>
 
@@ -31,23 +38,13 @@ export default function Contact() {
           <div className="space-y-6">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center shrink-0">
-                <Mail className="w-6 h-6" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg mb-1">Email Us</h3>
-                <p className="text-slate-500 text-sm mb-2">Typically replies within 2 hours</p>
-                <a href="mailto:support@sbvision.com" className="text-sky-600 hover:underline font-medium">support@sbvision.com</a>
-              </div>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center shrink-0">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Call Us</h3>
-                <p className="text-slate-500 text-sm mb-2">Mon-Fri from 8am to 5pm</p>
-                <a href="tel:+1234567890" className="text-sky-600 hover:underline font-medium">+1 (234) 567-890</a>
+                <p className="text-slate-500 text-sm mb-2">Mobile & Landline</p>
+                <a href="tel:+9779841759119" className="text-sky-600 hover:underline font-medium block mb-1">9841759119</a>
+                <a href="tel:+977014535346" className="text-sky-600 hover:underline font-medium">01-4535346</a>
               </div>
             </div>
 
@@ -58,8 +55,26 @@ export default function Contact() {
               <div>
                 <h3 className="font-bold text-lg mb-1">Visit Us</h3>
                 <p className="text-slate-500 text-sm">
-                  123 Tech Avenue<br/>Silicon Valley, CA 94000
+                  Khahare Khola<br/>Kathmandu 44600<br/>Nepal
                 </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center shrink-0">
+                <Facebook className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-1">Follow Us</h3>
+                <p className="text-slate-500 text-sm mb-2">Connect with us on Facebook</p>
+                <a 
+                  href="https://www.facebook.com/SurajElectronicsNepal" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sky-600 hover:underline font-medium"
+                >
+                  Suraj Electronics Nepal
+                </a>
               </div>
             </div>
           </div>
@@ -118,7 +133,43 @@ export default function Contact() {
             </form>
           </motion.div>
         </div>
+
+        {/* Map Section */}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-white p-8 rounded-3xl shadow-lg shadow-sky-500/5 border border-slate-100"
+          >
+            <h2 className="font-display text-3xl font-bold mb-6 text-center">Find Us on Map</h2>
+            <div className="w-full h-[500px] rounded-2xl overflow-hidden border border-slate-200">
+              <iframe
+                src="https://www.google.com/maps?q=Khahare+Khola,+Kathmandu+44600,Nepal&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Suraj Electronics Nepal Location"
+              />
+            </div>
+            <div className="mt-4 text-center">
+              <a
+                href="https://maps.app.goo.gl/Kmp2HakLyorbFRSE7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-600 hover:underline font-medium inline-flex items-center gap-2"
+              >
+                <MapPin className="w-4 h-4" />
+                Open in Google Maps
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </div>
+    </>
   );
 }

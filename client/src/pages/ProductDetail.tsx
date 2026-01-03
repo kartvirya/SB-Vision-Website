@@ -138,10 +138,11 @@ export default function ProductDetail() {
                 <ShoppingBag className="w-5 h-5 mr-2" /> Add to Cart
               </Button>
 
-              <div className="flex items-center justify-center gap-6 text-sm text-slate-500 pt-2">
-                <span className="flex items-center"><Truck className="w-4 h-4 mr-2" /> Free Shipping</span>
-                <span className="flex items-center"><Shield className="w-4 h-4 mr-2" /> 2 Year Warranty</span>
+              <div className="flex items-center justify-center gap-6 text-sm text-slate-500 pt-2 flex-wrap">
+                <span className="flex items-center"><Truck className="w-4 h-4 mr-2" /> Free Delivery</span>
+                <span className="flex items-center"><Shield className="w-4 h-4 mr-2" /> Genuine Warranty</span>
                 <span className="flex items-center"><Check className="w-4 h-4 mr-2" /> In Stock</span>
+                <span className="flex items-center"><Check className="w-4 h-4 mr-2" /> Original Product</span>
               </div>
             </div>
           </div>

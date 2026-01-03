@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Product } from "@shared/schema";
+import { Product } from "@/data/mockProducts";
 import { motion } from "framer-motion";
 import { ShoppingBag, Heart, Eye } from "lucide-react";
 import { useStore } from "@/hooks/use-store";

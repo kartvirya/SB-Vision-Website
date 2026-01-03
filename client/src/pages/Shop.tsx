@@ -4,6 +4,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, SlidersHorizontal, Loader2 } from "lucide-react";
+import { SEO } from "@/components/SEO";
 import {
   Sheet,
   SheetContent,
@@ -30,18 +31,24 @@ export default function Shop() {
     brand: brand === "all" ? undefined : brand
   });
 
-  const categories = ["Phone Case", "Screen Protector", "Charger", "Accessories"];
-  const brands = ["Apple", "Samsung", "Pixel", "Nothing"];
+  const categories = ["Phones", "Phone Case", "Screen Protector", "Charger", "Cables", "Accessories"];
+  const brands = ["Apple", "Samsung", "Xiaomi", "OnePlus", "Oppo", "Vivo", "Realme", "Nothing"];
 
   return (
-    <div className="pt-24 min-h-screen bg-slate-50 pb-20">
-      <div className="container mx-auto px-4">
+    <>
+      <SEO 
+        title="Shop - Latest Phones & Premium Accessories | SB Vision Kathmandu"
+        description="Browse our collection of latest smartphones and premium phone accessories in Kathmandu. Find iPhone cases, screen protectors, chargers, and more at SB Vision. Visit our store in Khahare Khola or shop online."
+        keywords="buy phones Nepal, shop phone accessories Kathmandu, iPhone cases online Nepal, phone accessories store Kathmandu, mobile phone shop Nepal"
+      />
+      <div className="pt-24 min-h-screen bg-slate-50 pb-20">
+        <div className="container mx-auto px-4">
         
         {/* Header & Controls */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <div>
             <h1 className="font-display text-4xl font-bold text-slate-900">Shop</h1>
-            <p className="text-slate-500 mt-2">Discover premium accessories for your device</p>
+            <p className="text-slate-500 mt-2">Browse latest phones and premium accessories</p>
           </div>
 
           <div className="flex items-center gap-3 w-full md:w-auto">
@@ -135,7 +142,8 @@ export default function Shop() {
             ))}
           </div>
         )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

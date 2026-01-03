@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { api, buildUrl } from "@shared/routes";
+import { mockProducts, type Product } from "@/data/mockProducts";
 
 export function useProducts(filters?: {
   brand?: string;
@@ -8,35 +8,52 @@ export function useProducts(filters?: {
   featured?: boolean;
   trending?: boolean;
 }) {
-  const queryKey = [api.products.list.path, filters];
   return useQuery({
-    queryKey,
+    queryKey: ["products", filters],
     queryFn: async () => {
-      // Build query string manually since fetch needs a string URL
-      const params = new URLSearchParams();
-      if (filters) {
-        Object.entries(filters).forEach(([key, value]) => {
-          if (value !== undefined) params.append(key, String(value));
-        });
-      }
-      const url = `${api.products.list.path}?${params.toString()}`;
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 100));
       
-      const res = await fetch(url, { credentials: "include" });
-      if (!res.ok) throw new Error("Failed to fetch products");
-      return api.products.list.responses[200].parse(await res.json());
+      let filtered = [...mockProducts];
+      
+      if (filters?.brand) {
+        filtered = filtered.filter(p => p.brand.toLowerCase() === filters.brand?.toLowerCase());
+      }
+      
+      if (filters?.category) {
+        filtered = filtered.filter(p => p.category === filters.category);
+      }
+      
+      if (filters?.search) {
+        const searchLower = filters.search.toLowerCase();
+        filtered = filtered.filter(p => 
+          p.name.toLowerCase().includes(searchLower) ||
+          p.description.toLowerCase().includes(searchLower) ||
+          p.brand.toLowerCase().includes(searchLower)
+        );
+      }
+      
+      if (filters?.featured) {
+        filtered = filtered.filter(p => p.isFeatured);
+      }
+      
+      if (filters?.trending) {
+        filtered = filtered.filter(p => p.isTrending);
+      }
+      
+      return filtered;
     },
   });
 }
 
 export function useProduct(id: number) {
   return useQuery({
-    queryKey: [api.products.get.path, id],
+    queryKey: ["product", id],
     queryFn: async () => {
-      const url = buildUrl(api.products.get.path, { id });
-      const res = await fetch(url, { credentials: "include" });
-      if (res.status === 404) return null;
-      if (!res.ok) throw new Error("Failed to fetch product");
-      return api.products.get.responses[200].parse(await res.json());
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 100));
+      const product = mockProducts.find(p => p.id === id);
+      return product || null;
     },
     enabled: !!id,
   });

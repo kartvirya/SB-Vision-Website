@@ -34,10 +34,12 @@ export function Navigation() {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform">
-            S
-          </div>
+        <Link href="/" className="flex items-center gap-3 group cursor-pointer">
+          <img 
+            src="/logo.png" 
+            alt="SB Vision Logo" 
+            className="w-12 h-12 group-hover:scale-110 transition-transform"
+          />
           <span className="font-display font-bold text-2xl tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
             SB Vision
           </span>
