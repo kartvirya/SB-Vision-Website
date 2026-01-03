@@ -4,10 +4,10 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "dev:frontend": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "cd client && vite",
+    "dev:frontend": "cd client && vite",
+    "build": "cd client && vite build",
+    "preview": "cd client && vite preview",
     "check": "tsc"
   },
   "dependencies": {

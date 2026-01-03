@@ -56,10 +56,12 @@ This project is configured for Vercel deployment:
 4. Deploy!
 
 The `vercel.json` file is already configured with:
-- Build command: `npm run build`
+- Build command: `npm run build` (runs from client directory)
 - Output directory: `dist`
 - Framework: Vite
 - SPA routing support
+
+**Note**: The build runs from the `client` directory, so make sure your Vercel project root is set to the repository root (not the client folder).
 
 ## Project Structure
 
